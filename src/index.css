@@ -1,0 +1,189 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%; /* Dark Gray Blue */
+    --foreground: 0 0% 98%; /* Near White */
+    --card: 240 4.8% 12%; /* Darker Gray Blue */
+    --card-foreground: 0 0% 98%;
+    --popover: 240 4.8% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 48 90% 50%; /* Gold */
+    --primary-foreground: 240 10% 3.9%; /* Dark Gray Blue for contrast on Gold */
+    --secondary: 210 40% 96.1%; /* Light Gray - for accents or secondary elements */
+    --secondary-foreground: 222.2 47.4% 11.2%; /* Dark Blue - for text on light gray */
+    --muted: 240 3.7% 15.9%; /* Darker Gray */
+    --muted-foreground: 0 0% 63.9%; /* Lighter Gray for muted text */
+    --accent: 48 90% 50%; /* Gold */
+    --accent-foreground: 240 10% 3.9%;
+    --destructive: 0 72.2% 50.6%; /* Red */
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%; /* Darker Gray for borders */
+    --input: 240 3.7% 15.9%; /* Darker Gray for input backgrounds */
+    --ring: 48 90% 50%; /* Gold for focus rings */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 4.8% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 4.8% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 48 90% 50%;
+    --primary-foreground: 240 10% 3.9%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 48 90% 50%;
+    --accent-foreground: 240 10% 3.9%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 48 90% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif; /* Using Inter for a modern, clean look */
+  }
+}
+
+.restaurant-layout {
+  background-color: hsl(var(--background)); /* Dark background */
+  background-image: 
+    radial-gradient(hsla(var(--muted), 0.5) 0.5px, transparent 0.5px),
+    radial-gradient(hsla(var(--muted), 0.5) 0.5px, transparent 0.5px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  padding: 2rem;
+  touch-action: none; /* Important for framer-motion drag on touch devices */
+}
+
+.table {
+  transition: box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  /* cursor is handled by framer-motion drag or dynamically */
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border: 2px solid transparent; 
+  display: flex;
+  flex-direction: column; /* Allow stacking of number and name */
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--primary-foreground));
+  font-weight: bold;
+  touch-action: none; /* Important for framer-motion drag on touch devices */
+  padding: 5px; /* Add some padding for name */
+  text-align: center;
+}
+
+.table:hover:not(.framer-motion-dragging) { /* Apply hover only when not dragging */
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3), 0 0 15px rgba(212, 175, 55, 0.2); /* Gold glow */
+  z-index: 10;
+  border-color: hsl(var(--primary)); /* Gold border on hover */
+}
+
+.table.framer-motion-dragging { /* Styles while dragging */
+  z-index: 20;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  cursor: grabbing !important;
+}
+
+
+.table-tooltip {
+  visibility: hidden;
+  position: absolute;
+  z-index: 30; /* Higher z-index for tooltip */
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(10px);
+  background-color: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  min-width: 300px; /* Slightly wider tooltip */
+  padding: 1.25rem; 
+  bottom: calc(100% + 10px); /* Position above the table */
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px); /* Center and offset */
+  pointer-events: none; /* Prevent tooltip from interfering with drag */
+}
+
+.table:hover:not(.framer-motion-dragging) .table-tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0px);
+  pointer-events: auto; /* Allow interaction with tooltip content when visible */
+}
+
+.table-round {
+  border-radius: 50%;
+}
+
+.table-square {
+  border-radius: 15%; 
+}
+
+.table-rectangle {
+  border-radius: 12px; 
+}
+
+.table-occupied {
+  background: linear-gradient(145deg, hsl(0, 50%, 40%), hsl(0, 60%, 50%)); 
+  border: 2px solid hsl(0, 70%, 60%);
+  color: hsl(var(--destructive-foreground));
+}
+
+.table-available {
+  background: linear-gradient(145deg, hsl(120, 40%, 30%), hsl(120, 50%, 40%)); 
+  border: 2px solid hsl(120, 60%, 50%);
+  color: hsl(var(--foreground));
+}
+
+.table-reserved {
+  background: linear-gradient(145deg, hsl(45, 70%, 40%), hsl(45, 80%, 50%)); 
+  border: 2px solid hsl(45, 90%, 60%);
+  color: hsl(var(--primary-foreground));
+}
+
+.table .table-number {
+  font-size: 1.6rem; /* Slightly larger number */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.table .table-custom-name {
+  font-size: 0.75rem;
+  font-weight: normal;
+  margin-top: 2px;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: hsl(var(--muted-foreground));
+}
+
+.table .table-capacity {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  background-color: hsla(var(--card), 0.7);
+  padding: 2px 6px;
+  border-radius: var(--radius);
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}

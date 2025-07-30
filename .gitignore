@@ -1,0 +1,26 @@
+# Ignora node_modules (esto es lo más importante)
+node_modules/
+
+# Archivos de log
+*.log
+
+# Archivos del sistema o IDEs
+.DS_Store
+Thumbs.db
+
+# Configuración de Visual Studio Code
+.vscode/
+
+# Builds o distribuciones
+dist/
+build/
+
+# Variables de entorno
+.env
+
+# Archivos temporales de sistema
+*.tmp
+*.swp
+
+# Carpetas que genera Electron o empaquetadores (si usas)
+out/
