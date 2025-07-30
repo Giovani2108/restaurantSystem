@@ -13,20 +13,12 @@ Este es un sistema web desarrollado con **React** para la gestión operativa y v
 
 ## ✅ Funcionalidades principales
 
-- 🔐 **Autenticación de usuarios**: inicio de sesión y control de accesos.
 - 📋 **Gestión de menús y productos**: CRUD completo para el contenido del restaurante.
 - 🧾 **Exportación de datos**: generación y descarga de reportes de ventas o inventario.
 - 📊 **Panel de estadísticas**: visualización gráfica de datos (ventas, pedidos, etc.).
 - 🛒 **Gestión de pedidos**: seguimiento y administración de órdenes en tiempo real.
-- 🧑‍🍳 **Roles de usuario**: separación de funcionalidades entre admin, mesero, cocina, etc.
 - 🌐 **Interfaz responsive**: adaptada a móviles, tablets y escritorio.
 
-## 🔒 Acceso y uso
-
-Este repositorio **no está destinado a distribución pública**. El acceso al código fuente es limitado y se comparte únicamente con usuarios autorizados bajo solicitud expresa.
-
-> ⚠️ No se proporciona documentación de instalación ni despliegue.  
-> Este proyecto no está preparado para uso externo sin asistencia directa del autor.
 
 ## 📁 Estructura del proyecto (resumen)
 
