@@ -21,26 +21,12 @@ Este es un sistema web desarrollado con **React** para la gestión operativa y v
 - 🧑‍🍳 **Roles de usuario**: separación de funcionalidades entre admin, mesero, cocina, etc.
 - 🌐 **Interfaz responsive**: adaptada a móviles, tablets y escritorio.
 
-## 🧰 Instalación y ejecución
+## 🔒 Acceso y uso
 
-1. Clona el repositorio:
+Este repositorio **no está destinado a distribución pública**. El acceso al código fuente es limitado y se comparte únicamente con usuarios autorizados bajo solicitud expresa.
 
-   git clone git@github.com:Giovani2108/restaurantSystem.git  
-   cd restaurantSystem
-
-2. Instala las dependencias:
-
-   npm install
-
-3. Ejecuta el proyecto en modo desarrollo:
-
-   npm run dev
-
-4. Abre en el navegador:
-
-   http://localhost:3000
-
-> ⚠️ Asegúrate de tener instalado Node.js y un entorno configurado para React.
+> ⚠️ No se proporciona documentación de instalación ni despliegue.  
+> Este proyecto no está preparado para uso externo sin asistencia directa del autor.
 
 ## 📁 Estructura del proyecto (resumen)
 
@@ -59,10 +45,6 @@ restaurantSystem/
 ├── package.json  
 └── README.md
 
-## 🔒 Conexión SSH (para colaborar)
-
-Este repositorio está configurado para ser accedido vía **SSH**. Asegúrate de tener tu clave pública agregada a GitHub y de tener permisos correctos en tu archivo `~/.ssh/config`.
-
 ## ✍️ Autor
 
 **Giovani2108**  
@@ -70,4 +52,4 @@ GitHub: [@Giovani2108](https://github.com/Giovani2108)
 
 ## 📜 Licencia
 
-Este proyecto está licenciado bajo los términos que el autor defina. *(Puedes añadir MIT, GPL, etc. si corresponde)*
+Uso privado. Reproducción o redistribución no autorizada sin consentimiento del autor.
